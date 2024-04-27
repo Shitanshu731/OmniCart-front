@@ -1,14 +1,20 @@
 import Link from "next/link"
 import styled from "styled-components"
+import Center from "./Center";
 
 export default function Header(){
     const StyledHeader = styled.header`
     background-color : #222
     
     `;
+    const Logo = styled(Link)`
+        color : #fff;
+        text-decoration : none;
+    `
     return (
         <StyledHeader>
-            <Link href={'/'}>Ecommerce</Link>
+        <Center>
+            <Logo href={'/'}>Ecommerce</Logo>
             <nav>
                 <Link href={'/'}>Home</Link>
                 <Link href={'/products'}>All Products</Link>
@@ -16,6 +22,7 @@ export default function Header(){
                 <Link href={'/account'}>Account</Link>
                 <Link href={'/cart'}>Cart(0)</Link>
             </nav>
+            </Center>
         </StyledHeader>
     )
 }
