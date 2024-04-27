@@ -36,6 +36,8 @@ export default function Featured() {
         <div>
         <Title>Products</Title>
         <Desc>Lorem Ipsum adsssssssss sadddddddd asssssssssd aaaaaaaaaaaaaaaaaaaaaaaaaaaaadas da da sdasd asd ad adasd asd as das da sdasd asd asd asda sd asd das dasd adadadadadas d sadad</Desc>
+        <button>Read more</button>
+        <button>Add to Cart</button>
         </div>
         </Column>
         <Column>
