@@ -1,15 +1,21 @@
 import Link from "next/link"
+import styled from "styled-components"
 
 export default function Header(){
+    const StyledHeader = styled.header`
+    background-color : #222
+    
+    `;
     return (
-        <div>
+        <StyledHeader>
             <Link href={'/'}>Ecommerce</Link>
             <nav>
                 <Link href={'/'}>Home</Link>
                 <Link href={'/products'}>All Products</Link>
                 <Link href={'/categories'}>Categories</Link>
+                <Link href={'/account'}>Account</Link>
                 <Link href={'/cart'}>Cart(0)</Link>
             </nav>
-        </div>
+        </StyledHeader>
     )
 }
