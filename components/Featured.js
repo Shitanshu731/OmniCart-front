@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Center from "./Center";
+import PrimaryBtn from "./PrimaryBtn";
 
 export default function Featured() {
     const Bg = styled.div`
@@ -37,7 +38,7 @@ export default function Featured() {
         <Title>Products</Title>
         <Desc>Lorem Ipsum adsssssssss sadddddddd asssssssssd aaaaaaaaaaaaaaaaaaaaaaaaaaaaadas da da sdasd asd ad adasd asd as das da sdasd asd asd asda sd asd das dasd adadadadadas d sadad</Desc>
         <button>Read more</button>
-        <button>Add to Cart</button>
+        <PrimaryBtn size="l">Add to Cart</PrimaryBtn>
         </div>
         </Column>
         <Column>
