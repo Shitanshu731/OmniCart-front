@@ -3,49 +3,78 @@ import Center from "./Center";
 import Button from "./Button";
 
 export default function Featured() {
-    const Bg = styled.div`
-        background-color : #222;
-        padding : 50px 0;
-        color : #fff;
-    `;
-    const Title = styled.h1`
-        margin : 0;
-        font-weight : normal;
-    `;
-    const Desc = styled.p`
-        color : #aaa;
-        font-size : 0.8rem;
-    `;
+  const Bg = styled.div`
+    background-color: #222;
+    padding: 50px 0;
+    color: #fff;
+  `;
+  const Title = styled.h1`
+    margin: 0;
+    font-weight: normal;
+  `;
+  const Desc = styled.p`
+    color: #aaa;
+    font-size: 0.8rem;
+  `;
 
-    const ColumnWrapper = styled.div`
-        display : grid;
-        grid-template-columns : .9fr 1.1fr;
-        gap : 40px;
-        img{
-            max-width : 100%;
-        }
-    `;
-    const Column = styled.div`
-        display : flex;
-        align-items : center;
-    `
-    return (
-        <Bg>
-        <Center>
+  const ColumnWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 40px;
+    img {
+      max-width: 100%;
+    }
+  `;
+  const Column = styled.div`
+    display: flex;
+    align-items: center;
+  `;
+  const ButtonsWrapper = styled.div`
+    display: flex;
+    gap: 10px;
+    margin-top : 10px;
+  `;
+  return (
+    <Bg>
+      <Center>
         <ColumnWrapper>
-        <Column>
-        <div>
-        <Title>Products</Title>
-        <Desc>Lorem Ipsum adsssssssss sadddddddd asssssssssd aaaaaaaaaaaaaaaaaaaaaaaaaaaaadas da da sdasd asd ad adasd asd as das da sdasd asd asd asda sd asd das dasd adadadadadas d sadad</Desc>
-        <Button white outline size="l">Read more</Button>
-        <Button primary size="l">Add to Cart</Button>
-        </div>
-        </Column>
-        <Column>
-        <img src = "https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg" />
-        </Column>
+          <Column>
+            <div>
+              <Title>Products</Title>
+              <Desc>
+                Lorem Ipsum adsssssssss sadddddddd asssssssssd
+                aaaaaaaaaaaaaaaaaaaaaaaaaaaaadas da da sdasd asd ad adasd asd as
+                das da sdasd asd asd asda sd asd das dasd adadadadadas d sadad
+              </Desc>
+              <ButtonsWrapper>
+                <Button white outline >
+                  Read more
+                </Button>
+                <Button primary >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                  Add to Cart
+                </Button>
+              </ButtonsWrapper>
+            </div>
+          </Column>
+          <Column>
+            <img src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg" />
+          </Column>
         </ColumnWrapper>
-        </Center>
-        </Bg>
-    )
+      </Center>
+    </Bg>
+  );
 }
