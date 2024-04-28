@@ -40,9 +40,9 @@ export default function Featured({product}) {
         <ColumnWrapper>
           <Column>
             <div>
-              <Title>{product?.title}</Title>
+              <Title>{product.title}</Title>
               <Desc>
-                {product?.description}
+                {product.description}
               </Desc>
               <ButtonsWrapper>
                 <Button white outline >
@@ -69,7 +69,7 @@ export default function Featured({product}) {
             </div>
           </Column>
           <Column>
-            <img src={product?.images[1]} alt={product?.title} />
+            <img src={product.images[1]} alt={product?.title} />
           </Column>
         </ColumnWrapper>
       </Center>
