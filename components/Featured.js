@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Center from "./Center";
 import Button from "./Button";
 
-export default function Featured() {
+export default function Featured({product}) {
   const Bg = styled.div`
     background-color: #222;
     padding: 50px 0;
@@ -40,11 +40,9 @@ export default function Featured() {
         <ColumnWrapper>
           <Column>
             <div>
-              <Title>Products</Title>
+              <Title>{product.title}</Title>
               <Desc>
-                Lorem Ipsum adsssssssss sadddddddd asssssssssd
-                aaaaaaaaaaaaaaaaaaaaaaaaaaaaadas da da sdasd asd ad adasd asd as
-                das da sdasd asd asd asda sd asd das dasd adadadadadas d sadad
+                {product.description}
               </Desc>
               <ButtonsWrapper>
                 <Button white outline >
@@ -71,7 +69,7 @@ export default function Featured() {
             </div>
           </Column>
           <Column>
-            <img src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg" />
+            <img src={product.images[1]} />
           </Column>
         </ColumnWrapper>
       </Center>
