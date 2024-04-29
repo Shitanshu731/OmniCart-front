@@ -1,54 +1,52 @@
-import styled from "styled-components";
-import Center from "./Center";
-import Button from "./Button";
+import Center from "./Center"
 
 export default function Featured({product}) {
-  const Bg = styled.div`
-    background-color: #222;
-    padding: 50px 0;
-    color: #fff;
-  `;
-  const Title = styled.h1`
-    margin: 0;
-    font-weight: normal;
-  `;
-  const Desc = styled.p`
-    color: #aaa;
-    font-size: 0.8rem;
-  `;
+  // const div = styled.div`
+  //   background-color: #222;
+  //   padding: 50px 0;
+  //   color: #fff;
+  // `;
+  // const h1 = styled.h1`
+  //   margin: 0;
+  //   font-weight: normal;
+  // `;
+  // const div = styled.p`
+  //   color: #aaa;
+  //   font-size: 0.8rem;
+  // `;
 
-  const ColumnWrapper = styled.div`
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 40px;
-    img {
-      max-width: 100%;
-    }
-  `;
-  const Column = styled.div`
-    display: flex;
-    align-items: center;
-  `;
-  const ButtonsWrapper = styled.div`
-    display: flex;
-    gap: 10px;
-    margin-top : 10px;
-  `;
+  // const div = styled.div`
+  //   display: grid;
+  //   grid-template-columns: 0.9fr 1.1fr;
+  //   gap: 40px;
+  //   img {
+  //     max-width: 100%;
+  //   };
+  // `;
+  // const div = styled.div`
+  //   display: flex;
+  //   align-items: center;
+  // `;
+  // const div = styled.div`
+  //   display: flex;
+  //   gap: 10px;
+  //   margin-top : 10px;
+  // `;
   return (
-    <Bg>
+    <div>
       <Center>
-        <ColumnWrapper>
-          <Column>
+        <div>
+          <div>
             <div>
-              <Title>{product.title}</Title>
-              <Desc>
+              <h1>{product.title}</h1>
+              <div>
                 {product.description}
-              </Desc>
-              <ButtonsWrapper>
-                <Button white="true" outline="true" >
+              </div>
+              <div>
+                <button white="true" outline="true" >
                   Read more
-                </Button>
-                <Button primary="true" >
+                </button>
+                <button primary="true" >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -64,15 +62,15 @@ export default function Featured({product}) {
                     />
                   </svg>
                   Add to Cart
-                </Button>
-              </ButtonsWrapper>
+                </button>
+              </div>
             </div>
-          </Column>
-          <Column>
+          </div>
+          <div>
             <img src={product.images[1]} alt={product?.title} />
-          </Column>
-        </ColumnWrapper>
+          </div>
+        </div>
       </Center>
-    </Bg>
+    </div>
   );
 }
