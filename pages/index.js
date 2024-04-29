@@ -3,12 +3,12 @@ import Header from "@/components/Header";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/product";
 
-export default function Homepage({product}) {
-  console.log(product);
+export default function Homepage({featuredProduct,newProducts}) {
+  console.log(newProducts);
   return (
     <div>
       <Header />
-      <Featured product={product} />
+      <Featured product={featuredProduct} />
     </div>
   )
 }
@@ -16,9 +16,11 @@ export default function Homepage({product}) {
 export async function getServerSideProps(){
     const featuredProductId = '662e5cd3d5c6b70d99152155';
     await mongooseConnect();
-    const product = await Product.findById(featuredProductId);
+    const featuredProduct = await Product.findById(featuredProductId);
+    const newProducts = await Product.find({},null, {sort : {'_id':-1}, limit:10});
     return {
-      props : {product : JSON.parse(JSON.stringify(product))}
+      props : {featuredProduct : JSON.parse(JSON.stringify(featuredProduct)),
+               newProducts : JSON.parse(JSON.stringify(newProducts))}
     }
 
 }
