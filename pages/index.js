@@ -15,19 +15,28 @@ export default function Homepage({featuredProduct,newProducts}) {
   )
 }
 
-export async function getServerSideProps(){
-  try{
-    const featuredProductId = '662e5cd3d5c6b70d99152155';
-    await mongooseConnect();
-    const featuredProduct = await Product.findById(featuredProductId);
-    const newProducts = await Product.find({},null, {sort : {'_id':-1}, limit:10});
-    return {
-      props : {featuredProduct : JSON.parse(JSON.stringify(featuredProduct)),
-               newProducts : JSON.parse(JSON.stringify(newProducts))}
-    }
-  }
-  catch(err){
-      console.log(err);
-  }
+export async function getServerSideProps() {
+  try {
+    await mongooseConnect(); // Assuming this function establishes the MongoDB connection
 
+    const featuredProductId = '662e5cd3d5c6b70d99152155';
+    const featuredProduct = await Product.findById(featuredProductId).lean();
+
+    const newProducts = await Product.find({}, null, { sort: { '_id': -1 }, limit: 10 }).lean();
+
+    return {
+      props: {
+        featuredProduct : JSON.parse(JSON.stringify(featuredProduct)),
+        newProducts : JSON.parse(JSON.stringify(newProducts))
+      }
+    };
+  } catch (err) {
+    console.error(err);
+    return {
+      redirect: {
+        destination: '/error', 
+        permanent: false
+      }
+    };
+  }
 }
