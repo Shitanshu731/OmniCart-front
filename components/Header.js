@@ -1,41 +1,21 @@
 import Link from "next/link";
-import styled from "styled-components";
 import Center from "./Center";
 
 export default function Header() {
-  const StyledHeader = styled.header`
-    background-color: #222;
-  `;
-  const Logo = styled(Link)`
-    color: #fff;
-    text-decoration: none;
-  `;
-  const NavLink = styled(Link)`
-    color: #aaa;
-    text-decoration: none;
-  `;
-  const Wrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-  `;
-  const StyledNav = styled.nav`
-  display : flex;
-  gap : 15px;
-  `;
   return (
-    <StyledHeader>
+    <header className="bg-[#222] text-white">
       <Center>
-        <Wrapper>
-          <Logo href={"/"}>Ecommerce</Logo>
-          <StyledNav>
-            <NavLink href={"/"}>Home</NavLink>
-            <NavLink href={"/products"}>All Products</NavLink>
-            <NavLink href={"/categories"}>Categories</NavLink>
-            <NavLink href={"/account"}>Account</NavLink>
-            <NavLink href={"/cart"}>Cart(0)</NavLink>
-          </StyledNav>
-        </Wrapper>
+        <div className="flex justify-between">
+          <Link href={"/"}>Ecommerce</Link>
+          <nav className="flex gap-[15px]">
+            <Link className="text-[#aaa] decoration-none" href={"/"}>Home</Link>
+            <Link className="text-[#aaa] decoration-none" href={"/products"}>All Products</Link>
+            <Link className="text-[#aaa] decoration-none" href={"/categories"}>Categories</Link>
+            <Link className="text-[#aaa] decoration-none" href={"/account"}>Account</Link>
+            <Link className="text-[#aaa] decoration-none" href={"/cart"}>Cart(0)</Link>
+          </nav>
+        </div>
       </Center>
-    </StyledHeader>
+    </header>
   );
 }

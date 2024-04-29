@@ -1,52 +1,21 @@
 import Center from "./Center"
 
 export default function Featured({product}) {
-  // const div = styled.div`
-  //   background-color: #222;
-  //   padding: 50px 0;
-  //   color: #fff;
-  // `;
-  // const h1 = styled.h1`
-  //   margin: 0;
-  //   font-weight: normal;
-  // `;
-  // const div = styled.p`
-  //   color: #aaa;
-  //   font-size: 0.8rem;
-  // `;
-
-  // const div = styled.div`
-  //   display: grid;
-  //   grid-template-columns: 0.9fr 1.1fr;
-  //   gap: 40px;
-  //   img {
-  //     max-width: 100%;
-  //   };
-  // `;
-  // const div = styled.div`
-  //   display: flex;
-  //   align-items: center;
-  // `;
-  // const div = styled.div`
-  //   display: flex;
-  //   gap: 10px;
-  //   margin-top : 10px;
-  // `;
   return (
-    <div>
+    <div className="bg-[#222] text-white py-[50px] px-0">
       <Center>
-        <div>
+        <div className="grid gap-[40px] grid-cols-2">
           <div>
             <div>
-              <h1>{product.title}</h1>
-              <div>
+              <h1 className="m-0 font-normal">{product.title}</h1>
+              <p className="text-[#aaa] font-[0.8rem]">
                 {product.description}
-              </div>
-              <div>
-                <button white="true" outline="true" >
+              </p>
+              <div className="flex items-center mt-[10px] gap-3">
+                <button className="rounded-sm border-2 p-2">
                   Read more
                 </button>
-                <button primary="true" >
+                <button className="bg-blue-500 border-2 rounded-sm p-2 flex gap-[10px] " >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -67,7 +36,7 @@ export default function Featured({product}) {
             </div>
           </div>
           <div>
-            <img src={product.images[1]} alt={product?.title} />
+            <img className="max-w-[100%]" src={product.images[1]} alt={product?.title} />
           </div>
         </div>
       </Center>
