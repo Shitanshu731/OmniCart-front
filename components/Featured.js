@@ -1,6 +1,12 @@
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
 import Center from "./Center"
 
 export default function Featured({product}) {
+  const {addProduct} = useContext(CartContext);
+  function addFeaturedToCart(){
+    addProduct(product._id)
+  }
   return (
     <div className="bg-[#222] text-white py-[50px] px-0">
       <Center>
@@ -15,7 +21,7 @@ export default function Featured({product}) {
                 <button className="rounded-sm border-2 p-2">
                   Read more
                 </button>
-                <button className="bg-blue-500 border-2 rounded-sm p-2 flex gap-[10px] " >
+                <button className="bg-blue-500 border-2 rounded-sm p-2 flex gap-[10px] " onClick={addFeaturedToCart}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

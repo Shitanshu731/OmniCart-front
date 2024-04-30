@@ -1,15 +1,21 @@
-export default function ProductBox({ id, title, description, images, price }) {
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
+import Link from "next/link";
+
+export default function ProductBox({ _id, title, description, images, price }) {
+  const {addProduct} = useContext(CartContext);
+  const url = '/product/'+ _id;
   return (
     <div className="">
       <div className="gap-5 flex">
-        <div className="border-2 border-slate-200 p-10 rounded-lg   w-[270px] h-[150px] items-center flex justify-center shadow-lg  bg-slate-300 ">
+        <Link href={url} className="border-2 border-slate-200 p-10 rounded-lg   w-[270px] h-[150px] items-center flex justify-center shadow-lg  bg-slate-300 ">
           <img className="w-[70%]" src={images[0]} alt={title} />
-        </div>
+        </Link>
       </div>
       <h1 className=" font-bold text-lg">{title}</h1>
       <div className="flex justify-between items-center">
       <h2 className="font-bold ">₹{price}</h2>
-      <button className="bg-blue-500 border-2 shadow-lg  rounded-sm p-2 flex gap-[10px] ">
+      <button className="bg-blue-500 border-2 shadow-lg  rounded-sm p-2 flex gap-[10px] " onClick={() => addProduct(_id)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

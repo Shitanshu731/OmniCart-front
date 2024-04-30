@@ -19,7 +19,7 @@ export async function getServerSideProps() {
   try {
     await mongooseConnect(); // Assuming this function establishes the MongoDB connection
 
-    const featuredProductId = '662e5cd3d5c6b70d99152155';
+    const featuredProductId = '662f4b06cf6261f72d7b5430';
     const featuredProduct = await Product.findById(featuredProductId).lean();
 
     const newProducts = await Product.find({}, null, { sort: { '_id': -1 }, limit: 10 }).lean();
@@ -31,12 +31,6 @@ export async function getServerSideProps() {
       }
     };
   } catch (err) {
-    console.error(err);
-    return {
-      redirect: {
-        destination: '/error', 
-        permanent: false
-      }
-    };
+    console.log(err);
   }
 }
