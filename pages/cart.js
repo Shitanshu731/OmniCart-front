@@ -10,6 +10,14 @@ export default function CartPage() {
       <div className="grid grid-cols-2 gap-[70px] mt-[40px] px-20">
         <div className="bg-slate-200 rounded-[10px] p-[30px]">
           {!cartProducts?.length && <div>Your Cart is Empty</div>}
+          {cartProducts.length > 0 && (
+            <>
+              <h2>Cart</h2>
+              {cartProducts.map((productId) => (
+                <h2>{productId}</h2>
+              ))}
+            </>
+          )}
         </div>
         {!!cartProducts.length && (
           <div className="bg-slate-200 rounded-[10px] p-[30px] flex flex-col">
