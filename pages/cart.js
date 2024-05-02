@@ -46,7 +46,10 @@ export default function CartPage() {
                     <td>
                       {cartProducts.filter((id) => id === product._id).length}
                     </td>
-                    <td>{product.price}</td>
+                    <td>
+                      {cartProducts.filter((id) => id === product._id).length *
+                        product.price}
+                    </td>
                   </tr>
                 ))}
               </tbody>
