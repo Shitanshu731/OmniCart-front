@@ -19,16 +19,38 @@ export default function CartPage() {
       <div className="grid grid-cols-2 gap-[70px] mt-[40px] px-20">
         <div className="bg-slate-200 rounded-[10px] p-[30px]">
           {!cartProducts?.length && <div>Your Cart is Empty</div>}
+          <h2>Cart</h2>
           {products.length > 0 && (
-            <>
-              <h2>Cart</h2>
-              {products.map((product) => (
-                <h2 key={product._id}>
-                  {product.title} :{" "}
-                  {cartProducts.filter((id) => id === product._id).length}
-                </h2>
-              ))}
-            </>
+            <table>
+              <thead>
+                <tr className="flex gap-10 items-center">
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {products.map((product) => (
+                  <tr key={product._id} className="flex gap-10 items-center">
+                    <td>
+                      <div className="max-w-[150px] max-h-[150px] p-[10px] bg-[#f0f0f0] rounded-[10px] shadow-lg flex items-center flex-col">
+                        <img
+                          className="max-w-[90px] max-h-[90px] items-center"
+                          src={product.images[0]}
+                        />
+                      </div>
+                      <h2 className="text-center font-semibold">
+                        {product.title}
+                      </h2>
+                    </td>
+                    <td>
+                      {cartProducts.filter((id) => id === product._id).length}
+                    </td>
+                    <td>{product.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           )}
         </div>
         {!!cartProducts.length && (
