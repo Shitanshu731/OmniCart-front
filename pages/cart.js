@@ -93,10 +93,45 @@ export default function CartPage() {
           )}
         </div>
         {!!cartProducts.length && (
-          <div className="bg-slate-200 rounded-[10px] p-[30px] flex flex-col">
+          <div className="gap-4 bg-slate-200 rounded-[10px] p-[30px] flex flex-col">
             <h2>Order Information</h2>
-            <input type="text" placeholder="Address" />
-            <input type="text" placeholder="Address2" />
+            <input
+              className="outline-none p-2 rounded-sm shadow-lg"
+              type="text"
+              placeholder="Address"
+            />
+            <input
+              className="outline-none p-2 rounded-sm shadow-lg"
+              type="text"
+              placeholder="Address2"
+            />
+            <input
+              className="outline-none p-2 rounded-sm shadow-lg"
+              type="email"
+              placeholder="email"
+            />
+            <div className="flex gap-4">
+              <input
+                className=" w-[50%] outline-none p-2 rounded-sm shadow-lg"
+                type="text"
+                placeholder="City"
+              />
+              <input
+                className="w-[50%] outline-none p-2 rounded-sm shadow-lg"
+                type="text"
+                placeholder="Postal Code"
+              />
+            </div>
+            <input
+              className="outline-none p-2 rounded-sm shadow-lg"
+              type="text"
+              placeholder="Street Address"
+            />
+            <input
+              className="outline-none p-2 rounded-sm shadow-lg"
+              type="text"
+              placeholder="Country"
+            />
             <button className="bg-black text-white border-1 p-1 rounded-[10px]">
               Continue to Payment
             </button>
