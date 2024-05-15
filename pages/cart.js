@@ -2,6 +2,7 @@ import { CartContext } from "@/components/CartContext";
 import Header from "../components/Header";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import CountUp from "react-countup";
 
 export default function CartPage() {
   const { cartProducts, addProduct, removeProduct } = useContext(CartContext);
@@ -78,7 +79,14 @@ export default function CartPage() {
                 <tr>
                   <td></td>
                   <td></td>
-                  <td>{total}</td>
+                  <td>
+                    <CountUp
+                      duration={1}
+                      prefix="$ "
+                      decimal=","
+                      end={`${total}`}
+                    />
+                  </td>
                 </tr>
               </tbody>
             </table>
