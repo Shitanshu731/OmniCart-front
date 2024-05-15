@@ -50,11 +50,17 @@ export default function CartPage() {
                       </h2>
                     </td>
                     <td>
-                      <button onClick={() => leastProduct(product._id)}>
+                      <button
+                        className="px-2 py-1 bg-slate-400 rounded-sm"
+                        onClick={() => leastProduct(product._id)}
+                      >
                         -
                       </button>
                       {cartProducts.filter((id) => id === product._id).length}
-                      <button onClick={() => moreProduct(product._id)}>
+                      <button
+                        className="px-2 py-1 bg-slate-400 rounded-sm"
+                        onClick={() => moreProduct(product._id)}
+                      >
                         +
                       </button>
                     </td>
