@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 export default function CartPage() {
-  const { cartProducts } = useContext(CartContext);
+  const { cartProducts, addProduct, removeProduct } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   useEffect(() => {
     if (cartProducts.length > 0) {
@@ -13,6 +13,12 @@ export default function CartPage() {
       });
     }
   }, [cartProducts]);
+  function moreProduct(id) {
+    addProduct(id);
+  }
+  function leastProduct(id) {
+    removeProduct(id);
+  }
   return (
     <>
       <Header />
@@ -44,7 +50,13 @@ export default function CartPage() {
                       </h2>
                     </td>
                     <td>
+                      <button onClick={() => leastProduct(product._id)}>
+                        -
+                      </button>
                       {cartProducts.filter((id) => id === product._id).length}
+                      <button onClick={() => moreProduct(product._id)}>
+                        +
+                      </button>
                     </td>
                     <td>
                       {cartProducts.filter((id) => id === product._id).length *
